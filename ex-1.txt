@@ -1,0 +1,64 @@
+Ex-1. Python Data Structure
+IDLE Shell을 실행시켜 interactive mode에서 coding하면서 맞는 답을 찾아 보자. 각 물음에 대해 문제를 해결하는 code와 결과를 copy하여, 문항 아래에 붙여 넣은 후 이 파일을 제출한다.
+서술문:
+The prices of fruits in the market are as follows:
+>>> prices = {‘apple’: 1500, ‘orange’: 1000, ‘pear’: 2000, ‘banana’ : 500, ‘pineapple’: 3000}
+I put the following fruits into my basket.
+>>> my_basket = ['apple', 'orange', 'apple', 'pear', 'orange', ‘banana']
+
+1.	How many fruits in my basket?
+>>> len(my_basket)
+6
+2.	Are there any oranges in my basket?
+>>> 'orange' in my_basket
+True
+3.	Are there any apples or oranges in my basket?
+>>> 'orange' in my_basket or 'apple' in my_basket
+True
+4.	Put a pineapple into my basket if it is not in the basket? 
+>>> if not 'pineapple' in my_basket:
+my_basket.insert(0, 'pineapple')
+	print(my_basket)
+	
+['pineapple', 'apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+5.	What kinds of fruits are in my basket?
+>>> whatKindsOfFruit = set(my_basket)
+>>> print(whatKindsOfFruit)
+{'apple', 'orange', 'pear', 'banana', 'pineapple'}
+6.	Show the name of fruits in my basket ending with ‘e’. (Do not show the same names twice)
+>>> for i in whatKindsOfFruit:
+	if(i[len(i)-1] == 'e'):
+		print(i)		
+orange
+pineapple
+apple
+7.	How many apples are in my basket?
+>>> count = 0
+>>> for ap in my_basket:
+	if(ap == 'apple'):
+		count += 1	
+>>> print(count)
+2
+8.	Count the number for each kind of fruits in my basket. (You may represent them as a dict)
+>>> for fru in my_basket:
+	if(fru not in fruit.keys()):
+		fruit[fru] = 1
+	else:
+		fruit[fru] += 1		
+>>> fruit
+{'apple': 2, 'banana': 1, 'orange': 2, 'pear': 1, 'pineapple': 1}
+9.	How much do I pay for the fruits in my basket.
+>>> price = 0
+>>> for key in fruit:
+	if(key == 'apple'):
+		price = price + (fruit[key] * prices['apple'])
+	elif(key == 'orange'):
+		price = price + (fruit[key] * prices['orange'])
+	elif(key == 'pear'):
+		price = price + (fruit[key] * prices['pear'])
+	elif(key == 'banana'):
+		price = price + (fruit[key] * prices['banana'])
+	elif(key == 'pineapple'):
+		price = price + (fruit[key] * prices['pineapple'])	
+>>> price
+10500

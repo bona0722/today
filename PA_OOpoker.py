@@ -31,9 +31,9 @@ class Card(metaclass=ABCMeta):
 
 class PKCard(Card):
     def value(self):
-        self.order = dict(zip(ranks, range(2, 2 + len(ranks))))
-        for i in self.order.keys():
-            if self.card[0] == i: return self.order[i]
+        order = dict(zip(ranks, range(2, 2 + len(ranks))))
+        for i in order.keys():
+            if self.card[0] == i: return order[i]
 
 if __name__ == '__main__':
     c1 = PKCard('QC')
@@ -52,45 +52,36 @@ if __name__ == '__main__':
     print(cards)
 
 
-# ## Deck class
-# Q. 다음 methods를 갖는 `Deck` class를 작성하라.
-# 
-# Methods:
-# - `__init__(self, cls)`: `cls`는 card class name
-# - shuffle
-# - pop
-# - `__str__`
-# - `__len__(self)` to enable `len` builtin function
-# - `__getitem__(self, index)` to enable indexing and slicing as well as iteration
 
+import random
+class Deck(PKCard):
+    def __init__(self, cls):
+    def shuffle():
+    def pop()
+    def __str__():
+    def __len__(self):
+        
+    def __getitem__(self, index):
 
-# import random
-# class Deck:
-#     def __init__(self, cls):
-#         """Create a deck of 'cls' card class
-#         """
+if __name__ == '__main__':
+    deck = Deck(PKCard)  # deck of poker cards
+    deck.shuffle()
+    c = deck[0]
+    print('A deck of', c.__class__.__name__)
+    print(deck)
+    # testing __getitem__ method
+    print(deck[-5:])
 
-#         pass
-
-# if __name__ == '__main__':
-#     deck = Deck(PKCard)  # deck of poker cards
-#     deck.shuffle()
-#     c = deck[0]
-#     print('A deck of', c.__class__.__name__)
-#     print(deck)
-#     # testing __getitem__ method
-#     print(deck[-5:])
-
-#     while len(deck) >= 10:
-#         my_hand = []
-#         your_hand = []
-#         for i in range(5):
-#             for hand in (my_hand, your_hand):
-#                 card = deck.pop()
-#                 hand.append(card)
-#         my_hand.sort(reverse=True)
-#         your_hand.sort(reverse=True)
-#         print(my_hand, '>', your_hand, '?', my_hand > your_hand)
+    while len(deck) >= 10:
+        my_hand = []
+        your_hand = []
+        for i in range(5):
+            for hand in (my_hand, your_hand):
+                card = deck.pop()
+                hand.append(card)
+        my_hand.sort(reverse=True)
+        your_hand.sort(reverse=True)
+        print(my_hand, '>', your_hand, '?', my_hand > your_hand)
 
 
 # 위의 예에서 my_hand와 your_hand는 단순히 rank value가 가장 큰 것이 이긴다는 'high card' 족보만으로 따졌을 때이다. Poker의 패는 [List of poker hands](https://en.wikipedia.org/wiki/List_of_poker_hands)에서 보듯이 다양한 족보가 있다.

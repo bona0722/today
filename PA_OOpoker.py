@@ -30,6 +30,7 @@ class Card(metaclass=ABCMeta):
 
 
 class PKCard(Card):
+
     def value(self):
         order = dict(zip(ranks, range(2, 2 + len(ranks))))
         for i in order.keys():
@@ -54,14 +55,24 @@ if __name__ == '__main__':
 
 
 import random
-class Deck(PKCard):
+class Deck():
     def __init__(self, cls):
-    def shuffle():
-    def pop()
-    def __str__():
+        self.deck = [cls(r+s) for r in ranks for s in suits] 
+
+    def shuffle(self):
+        return random.shuffle(self.deck)
+
+    def pop(self):
+        return self.deck.pop()
+
+    def __str__(self):
+        return f'{self.deck}'
+
     def __len__(self):
-        
+        return len(self.deck)
+
     def __getitem__(self, index):
+        return self.deck[index]
 
 if __name__ == '__main__':
     deck = Deck(PKCard)  # deck of poker cards
@@ -69,7 +80,7 @@ if __name__ == '__main__':
     c = deck[0]
     print('A deck of', c.__class__.__name__)
     print(deck)
-    # testing __getitem__ method
+    #testing __getitem__ method
     print(deck[-5:])
 
     while len(deck) >= 10:
